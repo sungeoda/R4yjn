@@ -21,11 +21,14 @@
   #button{
    width: 30px;
    height: 30px;
+   background: gray;
+   opacity: 0.5;
   }
  </style>
 </head>
 <body>
  <div id="player"></div>
+ <div id="button"></div>
  <script>
   if ("serviceWorker" in navigator) {
    navigator.serviceWorker.register("sw.js");
