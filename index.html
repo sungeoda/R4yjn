@@ -28,10 +28,19 @@
 </head>
 <body>
  <div id="player"></div>
- <button id="leftButton" onlick="leftbutton()"></button>
+ <button id="leftButton" onlick="leftmove()"></button>
+ <button id="rightButton" onlick="rightmove()"></button>
  <script>
   if ("serviceWorker" in navigator) {
    navigator.serviceWorker.register("sw.js");
+  }
+  let leftMoveX = 0;
+
+  function leftmove{
+   leftMoveX -= 20;
+  }
+  function rightmove{
+   leftMoveX += 20;
   }
  </script>
 </body>
