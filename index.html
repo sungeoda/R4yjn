@@ -34,10 +34,10 @@
   if ("serviceWorker" in navigator) {
    navigator.serviceWorker.register("sw.js");
   }
-  let MoveX = 0;
+  let moveX = 0;
   setInterval(move, 16)
   function move() {
-   document.ElementIdBy("player").style.left = MoveX;
+   document.getElementIdBy("player").style.left = moveX;
   } 
  </script>
 </body>
