@@ -28,21 +28,22 @@
 </head>
 <body>
  <div id="player"></div>
- <button id="leftButton" onlick="leftmove()"></button>
- <button id="rightButton" onlick="rightmove()"></button>
+ <button id="leftButton" onclick="leftmove()"></button>
+ <button id="rightButton" onclick="rightmove()"></button>
  <script>
   if ("serviceWorker" in navigator) {
    navigator.serviceWorker.register("sw.js");
   }
-  let leftMoveX = 0;
+  let leftMoveX = 100;
 
-  function leftmove{
+  function leftmove() {
    leftMoveX -= 20;
+   document.getElementById("player").style.left = leftMoveX + "px";
   }
-  function rightmove{
+  function rightmove() {
    leftMoveX += 20;
+   document.getElementById("player").style.left = leftMoveX + "px";
   }
-  document.getElementById("player").style.left = leftMoveX + "px";
  </script>
 </body>
 </html>
