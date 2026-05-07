@@ -35,9 +35,11 @@
    navigator.serviceWorker.register("sw.js");
   }
   let moveX = 0;
+  let playerX = 100;
+  
   setInterval(move, 16)
   function move() {
-   document.getElementIdBy("player").style.left = moveX;
+   document.getElementIdBy("player").style.left = playerX + moveX + "px";
   } 
  </script>
 </body>
