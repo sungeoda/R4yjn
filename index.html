@@ -36,8 +36,9 @@
   }
   let moveX = 0;
   let playerX = 100;
-  
-  setInterval(move, 16)
+  if (move != 0) {
+   setInterval(move, 16)
+  }
   function move() {
    playerX += moveX;
    document.getElementById("player").style.left = playerX + "px";
