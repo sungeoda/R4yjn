@@ -24,19 +24,36 @@
    background: gray;
    opacity: 0.5;
   }
+  #leftButton,
+  #rightButton {
+
+   width: 80px;
+   height: 80px;
+
+   background: gray;
+   opacity: 0.5;
+
+   font-size: 40px;
+   text-align: center;
+   line-height: 80px;
+
+   display: inline-block;
+
+   user-select: none;
+}
  </style>
 </head>
 <body>
  <div id="player"></div>
- <button id="leftButton" ontouchstart="moveX = -0.5" ontouchend="moveX = 0">《</button>
- <button id="rightButton" ontouchstart="moveX = 0.5" ontouchend="moveX = 0">》</button>
+ <div id="leftButton">《</div>
+ <div id="rightButton">》</div>
  <script>
   if ("serviceWorker" in navigator) {
    navigator.serviceWorker.register("sw.js");
   }
   let moveX = 0;
   let playerX = 100;
-  setInterval(move)
+  setInterval(move, 16)
   function move() {
    playerX += moveX;
    document.getElementById("player").style.left = playerX + "px";
