@@ -28,17 +28,15 @@
 </head>
 <body>
  <div id="player"></div>
- <button id="leftButton" ontouchstart="moveX = -5" ontouchend="moveX = 0">《</button>
- <button id="rightButton" ontouchstart="moveX = 5" ontouchend="moveX = 0">》</button>
+ <button id="leftButton" ontouchstart="moveX = -0.5" ontouchend="moveX = 0">《</button>
+ <button id="rightButton" ontouchstart="moveX = 0.5" ontouchend="moveX = 0">》</button>
  <script>
   if ("serviceWorker" in navigator) {
    navigator.serviceWorker.register("sw.js");
   }
   let moveX = 0;
   let playerX = 100;
-  if (move != 0) {
-   setInterval(move, 16)
-  }
+  setInterval(move)
   function move() {
    playerX += moveX;
    document.getElementById("player").style.left = playerX + "px";
