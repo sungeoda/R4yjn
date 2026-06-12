@@ -54,10 +54,11 @@
   }
   let moveX = 0;
   let playerX = 100;
-  document.getElementById("leftButton");
-const rightButton = document.getElementById("rightButton");
 
-leftButton.addEventListener("touchstart", (e) => {
+const leftButton = document.getElementById("leftButton");
+const rightButton = document.getElementById("rightButton");
+  
+  leftButton.addEventListener("touchstart", (e) => {
   e.preventDefault();
   moveX = -5;
 });
