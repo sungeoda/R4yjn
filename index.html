@@ -40,6 +40,7 @@
    display: inline-block;
 
    user-select: none;
+   touch-action: none;
 }
  </style>
 </head>
@@ -53,11 +54,36 @@
   }
   let moveX = 0;
   let playerX = 100;
-  setInterval(move, 16)
-  function move() {
-   playerX += moveX;
-   document.getElementById("player").style.left = playerX + "px";
-  } 
+  document.getElementById("leftButton");
+const rightButton = document.getElementById("rightButton");
+
+leftButton.addEventListener("touchstart", (e) => {
+  e.preventDefault();
+  moveX = -5;
+});
+
+leftButton.addEventListener("touchend", () => {
+  moveX = 0;
+});
+
+rightButton.addEventListener("touchstart", (e) => {
+  e.preventDefault();
+  moveX = 5;
+});
+
+rightButton.addEventListener("touchend", () => {
+  moveX = 0;
+});
+  function gameLoop() {
+    playerX += moveX;
+
+    document.getElementById("player").style.left =
+      playerX + "px";
+
+    requestAnimationFrame(gameLoop);
+  }
+
+  gameLoop();
  </script>
 </body>
 </html>
