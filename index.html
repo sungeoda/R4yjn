@@ -49,12 +49,20 @@
   #rightButton {
      left: 95px;
   }
+  #well {
+      width: 2000px;
+      height: 30px;
+      position: fixed;
+      bottom: 0px;
+      left: 500px;
  </style>
 </head>
 <body>
  <div id="player"></div>
  <div id="leftButton">《</div>
  <div id="rightButton">》</div>
+
+ <div id="well"></div>
  <script>
   if ("serviceWorker" in navigator) {
    navigator.serviceWorker.register("sw.js");
