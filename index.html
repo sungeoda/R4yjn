@@ -57,6 +57,7 @@
       bottom: 0px;
       left: 0px;
       z-index: 1;
+  }
  </style>
 </head>
 <body>
@@ -109,21 +110,19 @@ rightButton.addEventListener("touchend", () => {
   }
   function move() {
    document.getElementById("player").style.left =
-      playerX;
+      playerX + "px";
   }
   function gameLoop() {
-    fakep = playerX;
-    playerX += moveX;
+  fakep = playerX;
+  playerX += moveX;
+  move();
+
+  if (collision()) {
+    playerX = fakep;
     move();
-    if (collision()) {
-     playerX = fakep;
-     move();
-     }
-    }
+  }
 
-    
-
-    requestAnimationFrame(gameLoop);
+  requestAnimationFrame(gameLoop);
   }
 
   gameLoop();
