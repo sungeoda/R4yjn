@@ -56,6 +56,7 @@
       position: fixed;
       bottom: 0px;
       left: 0px;
+      z-index: 1;
  </style>
 </head>
 <body>
@@ -64,19 +65,21 @@
  <div id="rightButton">》</div>
 
  <div id="well"></div>
+ 
  <script>
   if ("serviceWorker" in navigator) {
    navigator.serviceWorker.register("sw.js");
   }
   let moveX = 0;
   let playerX = 100;
+  let fakep = 100;
 
 const leftButton = document.getElementById("leftButton");
 const rightButton = document.getElementById("rightButton");
   
   leftButton.addEventListener("touchstart", (e) => {
   e.preventDefault();
-  moveX = -5;
+  moveX = -3;
 });
 
 leftButton.addEventListener("touchend", () => {
@@ -85,17 +88,40 @@ leftButton.addEventListener("touchend", () => {
 
 rightButton.addEventListener("touchstart", (e) => {
   e.preventDefault();
-  moveX = 5;
+  moveX = 3;
 });
 
 rightButton.addEventListener("touchend", () => {
   moveX = 0;
 });
+  function collision() {
+    let player = document.getElementById("player");
+    let well = document.getElementById("well");
+   
+    let p = player.getBoundingClientRect();
+    let w = well.getBoundingClientRect();
+    return (
+    p.left < w.right &&
+    p.right > w.left &&
+    p.top < w.bottom &&
+    p.bottom > w.top
+  );
+  }
+  function move() {
+   document.getElementById("player").style.left =
+      playerX;
+  }
   function gameLoop() {
+    fakep = playerX;
     playerX += moveX;
+    move();
+    if (collision()) {
+     playerX = fakep;
+     move();
+     }
+    }
 
-    document.getElementById("player").style.left =
-      playerX + "px";
+    
 
     requestAnimationFrame(gameLoop);
   }
