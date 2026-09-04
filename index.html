@@ -72,9 +72,13 @@
    navigator.serviceWorker.register("sw.js");
   }
   let moveX = 0;
+  let moveY = 0;
   let playerX = 100;
+  let playerY = 100;
   let fakep = 100;
-
+  let fakey = 100;
+  let gra = 0.1;
+  
 const leftButton = document.getElementById("leftButton");
 const rightButton = document.getElementById("rightButton");
   
@@ -111,10 +115,16 @@ rightButton.addEventListener("touchend", () => {
   function move() {
    document.getElementById("player").style.left =
       playerX + "px";
+   document.getElementById("player").style.up =
+      playerY + "px";
   }
   function gameLoop() {
+  moveY += gra;
+
+  fakey = playerY;
   fakep = playerX;
   playerX += moveX;
+  playerY += moveY
   move();
 
   if (collision()) {
